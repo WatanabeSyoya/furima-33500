@@ -23,7 +23,7 @@ class Item < ApplicationRecord
   with_options extend ActiveHash::Associations::ActiveRecordExtensions do
     belongs_to :category
     belongs_to :item_condition
-    belongs_to :shipping_charge
+    belongs_to :shipping_charges
     belongs_to :shipping_area
     belongs_to :days_to_ship
   end

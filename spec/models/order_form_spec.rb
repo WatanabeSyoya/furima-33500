@@ -28,14 +28,14 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form.errors.full_messages).to include("Postcode can't be blank")
       end
       it '郵便番号は-(ハイフン)がないと購入できない' do
-        @order_form.postcode = "1234567"
+        @order_form.postcode = '1234567'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Postcode is invalid. Include hyphen(-)")
+        expect(@order_form.errors.full_messages).to include('Postcode is invalid. Include hyphen(-)')
       end
       it '郵便番号は全角数字では購入できない' do
-        @order_form.postcode = "１２３−４５６７"
+        @order_form.postcode = '１２３−４５６７'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Postcode is invalid. Include hyphen(-)")
+        expect(@order_form.errors.full_messages).to include('Postcode is invalid. Include hyphen(-)')
       end
       it '都道府県が空(---)では購入できない' do
         @order_form.prefecture_id = 1
@@ -58,19 +58,19 @@ RSpec.describe OrderForm, type: :model do
         expect(@order_form.errors.full_messages).to include("Phone number can't be blank")
       end
       it '電話番号は全角数字では購入できない' do
-        @order_form.phone_number = "０９０１２３４５６７８"
+        @order_form.phone_number = '０９０１２３４５６７８'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号は11桁以上では購入できない' do
-        @order_form.phone_number = "090456789012"
+        @order_form.phone_number = '090456789012'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
       it '電話番号は-(ハイフン)を付けると購入できない' do
-        @order_form.phone_number = "090-1234-5678"
+        @order_form.phone_number = '090-1234-5678'
         @order_form.valid?
-        expect(@order_form.errors.full_messages).to include("Phone number is invalid")
+        expect(@order_form.errors.full_messages).to include('Phone number is invalid')
       end
     end
   end

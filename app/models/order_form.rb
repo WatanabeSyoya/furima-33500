@@ -8,6 +8,8 @@ class OrderForm
     validates :city
     validates :block
     validates :phone_number
+    validates :user_id
+    validates :item_id
   end
 
   validates :postcode, format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' }
